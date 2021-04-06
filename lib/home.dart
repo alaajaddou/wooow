@@ -3,7 +3,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class Home extends StatelessWidget {
 
-  final _links = ['http://wooow-super.com'];
+  final _links = ['http://vmi561267.contaboserver.net'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
             child: SingleChildScrollView(
                 child: WebView(
                     javascriptMode: JavascriptMode.unrestricted,
-                    initialUrl: 'http://wooow-super.com'
+                    initialUrl: 'http://vmi561267.contaboserver.net'
                 )
             ),
         ));

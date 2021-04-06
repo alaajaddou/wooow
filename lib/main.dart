@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-const kAndroidUserAgent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36';
-String selectedUrl = 'http://wooow-super.com';
+
+const kAndroidUserAgent =
+    'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36';
+String selectedUrl = 'http://vmi561267.contaboserver.net/';
 // ignore: prefer_collection_literals
 final Set<JavascriptChannel> jsChannels = [
   JavascriptChannel(
@@ -14,11 +16,14 @@ final Set<JavascriptChannel> jsChannels = [
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(new MaterialApp(
+    home: new MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
   final flutterWebViewPlugin = FlutterWebviewPlugin();
+
   MyApp({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -84,48 +89,48 @@ class _MyHomePageState extends State<MyApp> {
 
     _onProgressChanged =
         flutterWebViewPlugin.onProgressChanged.listen((double progress) {
-          if (mounted) {
-            setState(() {
-              _history.add('onProgressChanged: $progress');
-            });
-          }
+      if (mounted) {
+        setState(() {
+          _history.add('onProgressChanged: $progress');
         });
+      }
+    });
 
     _onScrollYChanged =
         flutterWebViewPlugin.onScrollYChanged.listen((double y) {
-          if (mounted) {
-            setState(() {
-              _history.add('Scroll in Y Direction: $y');
-            });
-          }
+      if (mounted) {
+        setState(() {
+          _history.add('Scroll in Y Direction: $y');
         });
+      }
+    });
 
     _onScrollXChanged =
         flutterWebViewPlugin.onScrollXChanged.listen((double x) {
-          if (mounted) {
-            setState(() {
-              _history.add('Scroll in X Direction: $x');
-            });
-          }
+      if (mounted) {
+        setState(() {
+          _history.add('Scroll in X Direction: $x');
         });
+      }
+    });
 
     _onStateChanged =
         flutterWebViewPlugin.onStateChanged.listen((WebViewStateChanged state) {
-          if (mounted) {
-            setState(() {
-              _history.add('onStateChanged: ${state.type} ${state.url}');
-            });
-          }
+      if (mounted) {
+        setState(() {
+          _history.add('onStateChanged: ${state.type} ${state.url}');
         });
+      }
+    });
 
     _onHttpError =
         flutterWebViewPlugin.onHttpError.listen((WebViewHttpError error) {
-          if (mounted) {
-            setState(() {
-              _history.add('onHttpError: ${error.code} ${error.url}');
-            });
-          }
+      if (mounted) {
+        setState(() {
+          _history.add('onHttpError: ${error.code} ${error.url}');
         });
+      }
+    });
   }
 
   @override
@@ -149,14 +154,14 @@ class _MyHomePageState extends State<MyApp> {
     return new MaterialApp(
       routes: {
         "/": (_) => new WebviewScaffold(
-          ignoreSSLErrors: true,
-          withJavascript: true,
-          withLocalStorage: true,
-          withZoom: false,
-          userAgent: kAndroidUserAgent,
-          appCacheEnabled: true,
-          url: "http://wooow-super.com",
-        ),
+              ignoreSSLErrors: true,
+              withJavascript: true,
+              withLocalStorage: true,
+              withZoom: false,
+              userAgent: kAndroidUserAgent,
+              appCacheEnabled: true,
+              url: "http://vmi561267.contaboserver.net",
+            ),
       },
     );
   }
